@@ -1,1 +1,179 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Better Bikes Inc | Bikes, better</title>
+  <!-- add the font awesome link here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="dropdown.css" rel="stylesheet" type="text/css" />
+  <link rel="icon"href="https://cdn.glitch.global/83a10884-cec3-4518-b89b-9e37d73fa498/favicon.ico?v=1711363907655" type="image/x-icon!">
+</head>
+<body>
+  <!-- HEADER -->
+    <header>
+      <nav class="navMenu" id="myNavMenu">
+        <div class="navColL">
+          <a href="/"><img id="logo" src="https://awsprodemailassets.s3.amazonaws.com/0ae1dbc4-e5aa-46c3-8aed-55995aabf5b7/BetterBikesInc._white_11398667683655041.png" alt="logo">
+          <img id="smallLogo" src="https://awsprodemailassets.s3.amazonaws.com/0ae1dbc4-e5aa-46c3-8aed-55995aabf5b7/BetterBikesInc_iconOnlyW_png_11402228692944843.png" alt="logo"></a>
+        </div>
+        <div class="navColR">
+          <!-- <div class="dropdown"> 
+            <button class="dropdown-button">Personal &nbsp;<i class="fas fa-caret-down"></i></button> 
+            <div class="dropdown-list"> 
+              <a href="/business.html">Business</a> 
+              <a href="/contact.html">Contact</a>
+            </div> 
+          </div> -->
+        </div>
+      </nav>
+    </header>
+
+		<!-- MAIN BODY CONTAINER -->
+    <div id="container">
+    <!-- WHEN NO ORDER IS QUERIED -->
+    <div id="defaultDiv">
+      <img class="heroPic" src="https://i.imgur.com/feXk069.jpg" alt="Bike background image" style="object-position: 50% 56%;">
+        <div class="clear"></div>
+        <br>
+      <div id="before">
+        <h2>Confirm an order</h2>
+        <div class="clear"></div>
+        <br>
+        <div id="preOrder">
+          <div class="card">
+            <img src="https://i.imgur.com/z5g8z36.jpg" alt="The Ridgeway bike" style="width:100%">
+            <p class="price">€599</p>
+            <p><b>THE RIDGEWAY</b><br>any mountain, any surface</p>
+            <p class="selected">SELECTED</p>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <br>
+        <div class="text">
+          <p>To receive a delivery confirmation for your order, please fill in your details below.</p>
+        </div>
+        <div class="formBox">
+          <input type="text" id="name-enter" name="Name" class="form" placeholder="Name" size="30">
+          <p>&nbsp;</p>
+          <input type="email" id="email-enter" name="Email" class="form" placeholder="email@email.com" size="30">
+          <p>&nbsp;<a href="#" id="form-enter">Enter</a><br></p>
+      </div>
+      </div>
+      
+      <div id="complete-message" style="display:none;">
+        <h2>Thank you</h2>
+        <div class="text">
+          <p>Order ID - <b><span class="orderId"></span></b></p>
+        </div>
+        <hr style="max-width:95%;">
+        <div class="row">
+          <div class="column">
+            <p>You should receive an email shortly with confirmation for your order, ID: <b><span class="orderId"></span></b>.<br>Please check your junk folder.</p>
+          </div>
+          <div class="column2">
+            <img src="https://awsprodemailassets.s3.amazonaws.com/0ae1dbc4-e5aa-46c3-8aed-55995aabf5b7/3213270_communication_email_letter_mail_message_icon_2229218449389959.png" alt="email icon" style="max-width: 40px;display: block;margin-left: auto;margin-right: auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+    <br>
+
+
+  </div>	
+  <footer>
+    <span>
+      <p>Webex CPaaS Team &nbsp
+        <a href="https://demolaunchpad.imisolutions.repl.co/" target="_blank"><i class="fas fa-rocket"></i></a>
+        &nbsp
+        <a href="https://imimobile.com/" target="_blank"><i class="fas fa-globe"></i></a>
+        &nbsp
+        <a href="https://www.linkedin.com/company/imimobile/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </p>
+    </span>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="script.js"></script>
+
+  <script>
+
+
+//Create function which takes a string and creates a json object from it, this is query string param style. 
+function parseQueryString (queryString) {
+    var  newQueryString= queryString.replace('?','');    
+    var parsedString = '';   
+
+    console.log(queryString);
+    if(queryString.length > 2){
+      parsedString = JSON.parse('{"' + decodeURI(newQueryString).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');}  
+    return parsedString;
+}
+
+
+$(document).ready(function () {
+
+//call the method passing in the query string.
+var jsonQuery = parseQueryString(window.location.search);
+
+var orderId = 0;
+
+//if we have a populated json object, 
+if( jsonQuery ) {
+  //if we have name as a json path in the json object and it's populated.
+  if(jsonQuery.name){
+    //use jquery to load the value into the name
+  $('#name-enter').val(jsonQuery.name);
+  }
+  //same deal for email
+  if(jsonQuery.email){
+    //use jquery to load the value into the email
+  $('#email-enter').val(jsonQuery.email);
+  }
+  if(jsonQuery.orderId){
+    //just creating a JSON object
+  orderId = jsonQuery.orderId;
+  }
+}
+
+var formEnter = $('#form-enter');
+
+formEnter.click(function (){
+
+  var nameEnter = $('#name-enter');
+  var xname = nameEnter.val();
+
+  var emailEnter = $('#email-enter');
+  var xemail = emailEnter.val();
+
+  var orderVal = 'better' + Math.floor((Math.random() * 100) + 10) + Math.floor((Math.random() * 100) + 10);
+  $('.orderId').text(orderVal);
+  
+  $.ajax({
+    url: 'https://hooks.imiconnect.io/events/S5C1QTPI5H',
+    type: 'POST',
+    contentType: "application/json",
+    dataType: "json",
+    data: JSON.stringify({
+      "name" : xname,
+      "email": xemail,
+      "orderId": orderVal
+    })
+  })
+  .done(function (data) {
+  console.log('Woo')
+
+  });
+  var completeMessage = $('#complete-message'); completeMessage.show();
+  var postOrder = $('#before'); postOrder.hide();
+  });
+});
+  </script>
+</body>
+</html>

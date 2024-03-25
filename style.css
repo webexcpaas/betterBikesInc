@@ -1,0 +1,357 @@
+/*Body Styling*/
+body {
+	font-family: 'Spartan', sans-serif;
+	color: #000000;
+  line-height: 1.6;
+  margin: 0;
+}
+
+b {
+  font-weight: 600;
+}
+
+a{
+  color: #4059FB;
+}
+
+a:hover{
+  color: #1E1E35;
+}
+
+/*Text Styling*/
+h1 {
+	font-size: 250%;
+  font-weight: 300;
+}
+
+h2 {
+  padding-bottom: 8px;
+  font-weight: 600;
+  font-size: 150%;
+}
+
+h1,
+h2 {
+	color: darkolivegreen;
+  max-width: 80%;
+  margin: auto;
+  font-weight: 700;
+}
+
+.text {
+  margin: auto;
+  max-width: 80%;
+}
+
+#logo{
+  width: 300px;
+  display: block;
+  margin: 12px;
+}
+
+#smallLogo{
+  display: none;
+}
+
+.navMenu {
+  display: flex;
+  overflow: hidden;
+  background-color: #292929;
+}
+
+.navColL {
+  flex: 75;
+  display: flex;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.navColR {
+  flex: 25;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.heroPic{
+  max-width: 100%;
+  height: 550px;
+  object-fit: cover;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+
+/*Header Styling*/
+header {
+  width: 100%;
+	margin: auto;
+  padding: 0px;
+}
+
+#container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#preOrder {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.28);
+  width: 280px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  flex-wrap: wrap;
+  padding: 1.5px;
+  border-radius: 2.5px;
+}
+
+.card img {
+  border-radius: 2.5px;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+  margin: 0;
+}
+
+.selected {
+  background-color: darkolivegreen;
+  color: whitesmoke;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 2.5px;
+}
+
+.card p {
+  margin: 0;
+}
+
+/*Form*/
+.formBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 80%;
+}
+
+#channels{
+  height: 39px;
+  width: 100px;
+  border: none;
+  color: #FFFFFF;
+  background-color: #292929;
+  border-radius: 3px;
+  padding-left: 3px;
+  font-weight: 600;
+}
+
+.form {
+  display: inline-flex;
+  padding: 11px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: #292929;
+}
+
+#form-enter {
+  display: inline-flex;
+  text-decoration: none;
+  color: white;
+  padding: 7px 10px;
+  background-color: #292929;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+#form-enter:hover{
+  background-color: darkolivegreen;
+}
+
+/*List Styling*/
+ol li {
+  padding-bottom: 8px;
+}
+
+ul li {
+  padding-bottom: 8px;
+}
+
+/*Image Styling*/
+img {
+	width: 100%;
+}
+
+/* Demo menu */
+* {
+  box-sizing: border-box;
+}
+
+.orderId {
+  color: darkolivegreen;
+  font-weight: 700;
+}
+
+.smallShow{
+    display: none;
+  }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column {
+  flex: 65;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.column2 {
+  flex: 35;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.clear {
+  clear:both;
+}
+
+.qrCode{
+  width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Footer Styling*/
+footer {
+  position: bottom;
+  width: 100%;
+	margin: auto;
+  left: 0;
+  bottom: 0;
+  background: #292929;
+  padding: 10px;
+  letter-spacing: 1px;
+  color: #fff;
+}
+footer span {
+  display: inline-block;
+  min-width: 230px;
+  margin: 10px 0 10px 0;
+  text-align: center;
+  padding-left: 30px;
+}
+footer span a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s ease-in;
+}
+footer span a:hover {
+  color: darkgoldenrod;
+}
+
+/*Sizing Styling*/
+@media screen and (max-width: 1400px) {
+	.heroPic{
+    height: 420px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+	.heroPic{
+    height: 390px;
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .heroPic{
+    height: 360px;
+  }
+
+  header ul {
+    padding-top:2px;
+  }
+
+  .tab {
+   display: none;
+  }
+
+  .tabcontent {
+    width: 100%;
+    height: 520px;
+  }
+
+  .smallShow{
+    display: block;
+  }
+	
+
+	h1 {
+		font-size: 195%;	
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.heroPic{
+    height: 320px;
+  }
+  
+  #logo{
+    display: none;
+  }
+
+  #smallLogo{
+    width: 80px;
+    display: block;
+    margin: 12px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  header span {
+  font-size: 15px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .heroPic{
+    height: 290px;
+  }
+
+  .form {
+    width: 90%;
+  }
+
+  .mobhide {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 401px) {
+  .mobShow {
+    display: none;
+  }
+}
